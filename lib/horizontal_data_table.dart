@@ -231,24 +231,22 @@ class _HorizontalDataTableState extends State<HorizontalDataTable> {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ScrollShadowModel>(
       create: (context) => _scrollShadowModel,
-      child: SafeArea(
-        child: LayoutBuilder(
-          builder: (context, boxConstraint) {
-            if (widget.tableHeight != null) {
-              return _getParallelListView(
-                boxConstraint.maxWidth,
-                boxConstraint.maxHeight > widget.tableHeight
-                    ? widget.tableHeight
-                    : boxConstraint.maxHeight,
-              );
-            } else {
-              return _getParallelListView(
-                boxConstraint.maxWidth,
-                boxConstraint.maxHeight,
-              );
-            }
-          },
-        ),
+      child: LayoutBuilder(
+        builder: (context, boxConstraint) {
+          if (widget.tableHeight != null) {
+            return _getParallelListView(
+              boxConstraint.maxWidth,
+              boxConstraint.maxHeight > widget.tableHeight
+                  ? widget.tableHeight
+                  : boxConstraint.maxHeight,
+            );
+          } else {
+            return _getParallelListView(
+              boxConstraint.maxWidth,
+              boxConstraint.maxHeight,
+            );
+          }
+        },
       ),
     );
   }
