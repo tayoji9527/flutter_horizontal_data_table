@@ -281,6 +281,7 @@ class _HorizontalDataTableState extends State<HorizontalDataTable> {
             scrollbarStyle: widget.horizontalScrollbarStyle,
             child: SingleChildScrollView(
               controller: _rightHorizontalScrollController,
+              padding: EdgeInsets.zero,
               child: Container(
                 color: widget.rightHandSideColBackgroundColor,
                 child: _getFixedHeaderScrollColumn(
