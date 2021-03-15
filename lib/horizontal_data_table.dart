@@ -436,6 +436,7 @@ class _HorizontalDataTableState extends State<HorizontalDataTable> {
     if (indexedWidgetBuilder != null) {
       return ListView.separated(
         controller: scrollController,
+        padding: EdgeInsets.zero,
         itemBuilder: indexedWidgetBuilder,
         itemCount: itemCount,
         separatorBuilder: (context, index) {
@@ -474,6 +475,7 @@ class _HorizontalDataTableState extends State<HorizontalDataTable> {
       [List<Widget> children]) {
     if (indexedWidgetBuilder != null) {
       return ListView.separated(
+        padding: EdgeInsets.zero,
         physics: const NonBounceBackScrollPhysics(),
         controller: scrollController,
         itemBuilder: indexedWidgetBuilder,
@@ -485,6 +487,7 @@ class _HorizontalDataTableState extends State<HorizontalDataTable> {
     } else {
       return ListView(
         physics: const NonBounceBackScrollPhysics(),
+        padding: EdgeInsets.zero,
         controller: scrollController,
         children: children,
       );
