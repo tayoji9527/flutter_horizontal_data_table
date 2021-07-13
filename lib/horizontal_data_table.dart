@@ -262,6 +262,8 @@ class _HorizontalDataTableState extends State<HorizontalDataTable> {
     return ChangeNotifierProvider<ScrollShadowModel>(
       create: (context) => _scrollShadowModel,
       child: SafeArea(
+        bottom: false,
+        top: false,
         child: LayoutBuilder(
           builder: (context, boxConstraint) {
             if (widget.tableHeight != null) {
@@ -526,6 +528,7 @@ class _HorizontalDataTableState extends State<HorizontalDataTable> {
     if (indexedWidgetBuilder != null) {
       return ListView.separated(
         physics: widget.scrollPhysics,
+        padding: EdgeInsets.zero,
         controller: scrollController,
         itemBuilder: indexedWidgetBuilder,
         itemCount: itemCount,
@@ -535,6 +538,7 @@ class _HorizontalDataTableState extends State<HorizontalDataTable> {
       );
     } else {
       return ListView.builder(
+        padding: EdgeInsets.zero,
         physics: widget.scrollPhysics,
         controller: scrollController,
         itemCount: children?.length,
@@ -570,6 +574,7 @@ class _HorizontalDataTableState extends State<HorizontalDataTable> {
       [List<Widget>? children]) {
     if (indexedWidgetBuilder != null) {
       return ListView.separated(
+        padding: EdgeInsets.zero,
         physics: const NonBounceBackScrollPhysics(),
         controller: scrollController,
         itemBuilder: indexedWidgetBuilder,
